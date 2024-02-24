@@ -9,7 +9,6 @@ export const LoginContainer = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    //background-color: #151515; //1
 `;
 
 export const Wrapper = styled.div`
@@ -77,4 +76,3 @@ export const CriarText = styled.a`
     color: #E23DD7;
     text-decoration: none;
 `;
-// Path: src/pages/Login/styles.tsx

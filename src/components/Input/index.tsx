@@ -1,15 +1,8 @@
 import { IconContainer, InputContainer, InputText, ErrorText } from './styles';
-import { ReactNode } from 'react'; // Import ReactNode
 import { Controller } from 'react-hook-form';
+import { IInputProps } from './types';
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-    leftIcon?: ReactNode; // Change IconType to ReactNode
-    control: any;
-    name: string;
-    errorMessage?: string;
-}
-
-const InputForm = ({ leftIcon, name, control, errorMessage, ...rest }: InputProps) => {
+const InputForm = ({ leftIcon, name, control, errorMessage, ...rest }: IInputProps) => {
     return (
         <>
             <InputContainer>
@@ -20,7 +13,6 @@ const InputForm = ({ leftIcon, name, control, errorMessage, ...rest }: InputProp
                     rules={{ required: true }}
                     render={({ field }) => <InputText {...field} {...rest} />}
                 />
-                {/* <input {...rest} /> */}
             </InputContainer>
             {errorMessage ? <ErrorText>{errorMessage}</ErrorText> : null}
         </>

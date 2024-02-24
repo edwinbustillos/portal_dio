@@ -22,7 +22,6 @@ export const InputContainer = styled.div`
       outline: none;
     }
   }
-
 `;
 
 export const IconContainer = styled.div`
@@ -37,13 +36,6 @@ export const InputText = styled.input`
   &:focus {
     outline: none;
   }
-  /* width: 100%;
-  min-width: 250px;
-  color: #FFF;
-  border: 0;
-  height: 30px;
-  padding: 8px;
-  font-size:16px; */
 `;
 
 export const ErrorText = styled.p`

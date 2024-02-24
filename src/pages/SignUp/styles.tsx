@@ -9,7 +9,6 @@ export const SignUpContainer = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    //background-color: #151515; //1
 `;
 
 export const Wrapper = styled.div`
@@ -84,4 +83,3 @@ export const Text = styled.p`
     line-height: 19px;
     color: #ffffff;
 `;
-// Path: src/pages/Login/styles.tsx

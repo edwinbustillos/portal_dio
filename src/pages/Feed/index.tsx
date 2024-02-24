@@ -1,9 +1,7 @@
 import React from 'react';
-//import Button from '../../components/Button';
 import Header from '../../components/Header';
 import Card from '../../components/Card';
 import { Container, TitleHighlight, Title, Column } from './styles';
-//import bannerImage from '../../assets/banner.png';
 import UserInfo from '../../components/UserInfo';
 import FaceImage from "../../assets/face.jpg";
 

@@ -10,26 +10,23 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import { api } from '../../services/api';
+import { IFormSignUp, defaultValues } from './types';
 
 
-const schema = yup.object({
+const schemaSignUp = yup.object({
+    fullname: yup.string().required('Campo obrigatório'),
     email: yup.string().email('E-mail inválido').required('Campo obrigatório'),
     password: yup.string().required('Campo obrigatório'),
-    fullname: yup.string().required('Campo obrigatório')
 }).required();
 
 const SignUp = () => {
 
     //const navigate = useNavigate();
 
-    const { control, handleSubmit, formState: { errors } } = useForm({
-        resolver: yupResolver(schema),
+    const { control, handleSubmit, formState: { errors, isValid } } = useForm<IFormSignUp>({
+        resolver: yupResolver(schemaSignUp) as any,
         mode: 'onChange',
-        defaultValues: {
-            email: '',
-            password: '',
-            fullname: '',
-        }
+        defaultValues,
     });
 
     const onSubmit = async (formData: any) => {
@@ -58,10 +55,10 @@ const SignUp = () => {
                     <TitleSignUp> Comece agora grátis </TitleSignUp>
                     <SubTitleSignUp> Crie sua conta e makethe change._ </SubTitleSignUp>
                     <form onSubmit={handleSubmit(onSubmit)}>
-                        <InputForm name="fullname" placeholder='Nome Completo' errorMessage={errors.fullname?.message} control={control} type='text' leftIcon={<MdOutlineCatchingPokemon />} />
-                        <InputForm name="email" placeholder='seu@email.com' errorMessage={errors.email?.message} control={control} type='text' leftIcon={<MdEmail />} />
-                        <InputForm name="password" placeholder='*****' errorMessage={errors.password?.message} control={control} type="password" leftIcon={<MdLock />} />
-                        <Button title="Entrar" variant='secondary' onClick={() => null} type="submit" />
+                        <InputForm name="fullname" placeholder='Nome Completo' errorMessage={errors.fullname?.message?.toString()} control={control} type='text' leftIcon={<MdOutlineCatchingPokemon />} />
+                        <InputForm name="email" placeholder='seu@email.com' errorMessage={errors.email?.message?.toString()} control={control} type='text' leftIcon={<MdEmail />} />
+                        <InputForm name="password" placeholder='*****' errorMessage={errors.password?.message?.toString()} control={control} type="password" leftIcon={<MdLock />} />
+                        <Button title="Entrar" variant='secondary' onClick={() => null} type="submit" disabled={!isValid} />
                     </form>
                     <Row>
                         <Text> Ao clicar em 'Criar minha Conta', declaro que aceito as Politicas de Privacidade e os Termos de Uso da DIO. </Text>

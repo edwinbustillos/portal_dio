@@ -1,16 +1,15 @@
 import React from 'react';
-//import { useNavigate } from 'react-router-dom';
 import { MdEmail, MdLock } from 'react-icons/md';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
-import InputForm  from '../../components/Input';
+import InputForm from '../../components/Input';
 import { Column, LoginContainer, CriarText, EsqueciText, Row, SubTitleLogin, Title, TitleLogin, Wrapper } from './styles';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
 import { api } from '../../services/api';
-
+import { defaultValues, IFormLogin } from './types';
 
 const schema = yup.object({
     email: yup.string().email('E-mail inválido').required('Campo obrigatório'),
@@ -19,15 +18,10 @@ const schema = yup.object({
 
 const Login = () => {
 
-    //const navigate = useNavigate();
-
-    const { control, handleSubmit, formState: { errors } } = useForm({
+    const { control, handleSubmit, formState: { errors } } = useForm<IFormLogin>({
         resolver: yupResolver(schema),
         mode: 'onChange',
-        defaultValues: {
-            email: '',
-            password: ''
-        }
+        defaultValues,
     });
 
     const onSubmit = async (formData: any) => {
@@ -39,10 +33,6 @@ const Login = () => {
             alert('Erro ao fazer login, tente novamente.');
         }
     };
-    // const handleClickSignIn = () => {
-    //     navigate('/feed');
-    // }
-    
     return (<>
         <Header />
         <LoginContainer>

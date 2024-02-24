@@ -5,22 +5,6 @@ export const CardContainer = styled.div`
   background-color: #3B4651;
   position: relative;
   margin-bottom: 24px;
-
-  /* display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 300px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-
-  &:hover {
-    transform: scale(1.05);
-  } */
 `;
 
 export const ImageBackground = styled.img`
@@ -29,9 +13,6 @@ export const ImageBackground = styled.img`
   background-repeat: no-repeat;
   background-size: auto 180px;
   background-position: center;
-  
-  /* object-fit: cover;
-  border-radius: 10px; */
 `;
 
 export const CardContent = styled.div`
